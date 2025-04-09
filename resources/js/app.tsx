@@ -13,6 +13,9 @@ createInertiaApp({
     setup({ el, App, props }) {
         const root = createRoot(el);
 
+        el.classList.add("h-screen")
+        el.style.display = "flex";
+        el.style.flexDirection = "column";
         root.render(<App {...props} />);
     },
     progress: {
