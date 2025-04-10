@@ -16,9 +16,10 @@ export default function MainLayout({title, children} : MainLayout) {
         <>
             <Head title={title}/>
             <Nav/>
-            <main className="px-3 flex flex-col grow-1">
-                {children}
-            </main>
+                <main className="px-3 flex flex-col grow-1">
+                    {children}
+                </main>
+           
             {url === "/" &&
                 <Footer/>            
             }
