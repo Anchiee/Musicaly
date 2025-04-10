@@ -2,7 +2,7 @@ import Animation from "./Animations/Animation"
 
 const sections = [
     {header: "About us", items: ["Our mission", "What is musicaly?"], links: ["sada", "sdaa"]},
-    {header: "Legal", items: ["Terms of service", "Privacy policy"], links: ["dsadas", "sdada"]},
+    {header: "Legal", items: ["Terms of service", "Privacy policy"], links: ["/terms", "privacy"]},
     {header: "Contact us", items: ["Find our repo here", "Contact via email"], links: ["https://github.com/Anchiee/Musicaly", "wyhwtf@gmail.com"]},
 ]
 
