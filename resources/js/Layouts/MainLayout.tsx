@@ -20,7 +20,7 @@ export default function MainLayout({title, children} : MainLayout) {
                     {children}
                 </main>
            
-            {url === "/" &&
+            {(url === "/" || url === "/terms" || url == "/privacy") &&
                 <Footer/>            
             }
         </>

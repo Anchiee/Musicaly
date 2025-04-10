@@ -1,14 +1,14 @@
 import Animation from "./Animations/Animation"
-
+import { Link } from "@inertiajs/react"
 
 export default function Nav() {
     return (
         <Animation element="header">
-            <header className="flex items-center bg-violet w-full px-3 justify-between h-20">
+            <header className="flex items-center bg-violet w-full px-3 justify-between h-20 fixed top-0">
                 <img src="Musicaly.png" alt="Musicaly logo" className="size-28"/>
 
                 <nav className="flex items-center text-[.8rem] gap-6 text-pastelpink font-bold" >
-                    <p>Terms of Service</p>
+                    <Link href="/terms">Terms of Service</Link>
                     <p>Privacy policy</p>
                     <p>Contact</p>
 
