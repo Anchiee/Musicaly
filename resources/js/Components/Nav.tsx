@@ -14,7 +14,7 @@ export default function Nav() {
                     <Link href="/privacy">Privacy policy</Link>
                     <p>Contact</p>
 
-                    <Link as="button" className="px-6 py-3 bg-white text-black rounded-3xl" href="/login">Sign-in</Link>
+                    <Link as="button" className="px-6 py-3 bg-white text-black rounded-3xl cursor-pointer" href="/login">Sign-in</Link>
                 </nav>
 
             </header>
