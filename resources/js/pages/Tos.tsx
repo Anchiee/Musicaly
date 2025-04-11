@@ -3,7 +3,7 @@ import MainLayout from "@/Layouts/MainLayout";
 export default function Terms() {
     return (
         <MainLayout title="Terms of Service">
-            <div className="px-6 py-8 max-w-4xl mx-auto">
+            <section className="px-6 py-8 max-w-4xl mx-auto">
                 <h1 className="text-3xl font-bold text-center text-violet mb-6 mt-30">Terms of Service</h1>
                 <p className="text-lg text-gray-700 mb-4">
                     Welcome to our platform! These Terms of Service ("Terms") govern your access to and use of our services. By accessing or using our website, you agree to comply with these Terms. If you do not agree to these Terms, please do not use our services.
@@ -70,7 +70,7 @@ export default function Terms() {
                 <p className="text-lg text-gray-700 mt-6 mb-30">
                     Thank you for using our services! We value your trust and are committed to providing you with a secure and reliable platform.
                 </p>
-            </div>
+            </section>
         </MainLayout>
     );
 }

@@ -3,7 +3,7 @@ import MainLayout from "@/Layouts/MainLayout";
 export default function Privacy() {
     return (
         <MainLayout title="Privacy Policy">
-            <div className="px-6 py-8 max-w-4xl mx-auto">
+            <section className="px-6 py-8 max-w-4xl mx-auto">
                 <h1 className="text-3xl font-bold text-center text-violet mb-6 mt-30">Privacy Policy</h1>
                 <p className="text-lg text-gray-700 mb-4">
                     Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use our services. By using our website, you agree to the terms outlined in this policy.
@@ -77,7 +77,7 @@ export default function Privacy() {
                 <p className="text-lg text-gray-700 mt-6 mb-30">
                     We are committed to protecting your privacy and ensuring transparency in how we handle your personal information. Thank you for trusting us.
                 </p>
-            </div>
+            </section>
         </MainLayout>
     );
 }
