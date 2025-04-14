@@ -2,13 +2,10 @@ import { Head } from "@inertiajs/react";
 import Nav from "@/Components/Nav";
 import Footer from "@/Components/Footer";
 import {usePage} from "@inertiajs/react";
+import { LayoutProps } from "@/types/layout";
 
-type MainLayout = {
-    title:string,
-    children: React.ReactNode,
-}
 
-export default function MainLayout({title, children} : MainLayout) {
+export default function MainLayout({title, children} : LayoutProps) {
 
     const {url} = usePage()
 
