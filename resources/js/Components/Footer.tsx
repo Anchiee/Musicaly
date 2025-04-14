@@ -20,7 +20,7 @@ export default function Footer() {
                             section.header == "Contact us" ? (
                                 <>
                                     <a href={section.links[0]} className="block" target="_blank">{section.items[0]}</a>
-                                    <a href={section.links[1]} target="_blank">{section.items[1]}</a>
+                                    <a href={`mailto:${section.links[1]}`} target="_blank">{section.items[1]}</a>
                                 </>
                             ) : (
                                 <>
