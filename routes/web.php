@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 Route::get('/', function () {
     return Inertia::render('Home');
@@ -20,4 +20,5 @@ Route::get('/privacy', function() {
 
 Route::middleware('guest')->group(function() {
     Route::get('/login', [AuthenticatedSessionController::class, 'create']);
+    Route::get('/sign', [RegisteredUserController::class, 'create']);
 });

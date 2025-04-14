@@ -5,7 +5,7 @@ import AuthLayout from "@/Layouts/AuthLayout"
 
 
 
-export default function login() {
+export default function sign() {
     return(
         <AuthLayout title="Sign-up">
             
@@ -16,6 +16,8 @@ export default function login() {
                         [
                             {label: "Username", placeholder: "John", id: "username", type: "text"},
                             {label: "Password", placeholder: "", id: "password", type: "password"},
+                            {label: "Confirm password", placeholder: "", id: "confirm_password", type: "password"},
+                            {label: "Email", placeholder: "John@example.com", id: "email", type: "email"},
                         ].map(inputSection => (
 
                             <div key={inputSection.id}>
@@ -27,7 +29,7 @@ export default function login() {
                     }
 
                     <div className="flex flex-col gap-2">
-                        <InlinePrompt text="New to musicaly?" link="/sign" linkText="Sign-up"/>
+                        <InlinePrompt text="Already have an account?" link="/login" linkText="Log-in"/>
                         <InlinePrompt text="Forgot password?" link="adas" linkText="Reset it"/>
                     </div>
 
