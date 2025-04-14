@@ -1,5 +1,7 @@
 import MainLayout from "@/Layouts/MainLayout";
 
+
+
 export default function Terms() {
     return (
         <MainLayout title="Terms of Service">

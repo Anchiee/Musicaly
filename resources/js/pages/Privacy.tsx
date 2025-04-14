@@ -1,5 +1,7 @@
 import MainLayout from "@/Layouts/MainLayout";
 
+
+
 export default function Privacy() {
     return (
         <MainLayout title="Privacy Policy">

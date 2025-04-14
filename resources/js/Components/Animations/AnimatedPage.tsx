@@ -1,4 +1,6 @@
 import { motion } from "motion/react"
+import { AnimatePresence } from "motion/react"
+import { usePage } from "@inertiajs/react"
 
 type AnimatedPage = {
     children: React.ReactNode,
@@ -8,7 +10,7 @@ type AnimatedPage = {
 const animations = {
     initial: {x: -20, opacity: 0},
     animate: {x: 0, opacity: 1},
-    exit: {x: -20, opacity: 0},
+    exit: {x: -20, opacity: 0, duration: .2},
     transition: {
         duration: 0.5,
         ease: "easeInOut", 
@@ -16,9 +18,14 @@ const animations = {
 }
 
 export default function AnimatedPage({children, className} : AnimatedPage) {
+
+    const {url} = usePage()
+
     return(
-        <motion.section variants={animations} initial="initial" animate="animate" exit="exit" transition={animations.transition} className={className}>
-            {children}
-        </motion.section>
+        <AnimatePresence mode="wait"> 
+            <motion.section variants={animations} initial="initial" animate="animate" exit="exit" transition={animations.transition} key={url} className={className}>
+                {children}
+            </motion.section>
+        </AnimatePresence>
     )
 }
