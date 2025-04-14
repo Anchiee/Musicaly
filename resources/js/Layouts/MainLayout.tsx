@@ -20,7 +20,7 @@ export default function MainLayout({title, children} : LayoutProps) {
                     </AnimatedPage>  
                 </main>
            
-            {(url === "/" || url === "/terms" || url == "/privacy") &&
+            {(url != "/login" && url != "/sign") &&
                 <Footer/>            
             }
         </>

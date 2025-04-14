@@ -17,6 +17,14 @@ Route::get('/privacy', function() {
     return Inertia::render('Privacy');
 });
 
+Route::get('/mission', function() {
+    return Inertia::render('Mission');
+});
+
+Route::get('/about', function() {
+    return Inertia::render('About');
+});
+
 
 Route::middleware('guest')->group(function() {
     Route::get('/login', [AuthenticatedSessionController::class, 'create']);

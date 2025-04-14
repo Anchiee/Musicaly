@@ -3,7 +3,7 @@ import { Link } from "@inertiajs/react"
 
 
 const sections = [
-    {header: "About us", items: ["Our mission", "What is musicaly?"], links: ["sada", "sdaa"]},
+    {header: "About us", items: ["Our mission", "What is musicaly?"], links: ["/mission", "/about"]},
     {header: "Legal", items: ["Terms of service", "Privacy policy"], links: ["/terms", "privacy"]},
     {header: "Contact us", items: ["Find our repo here", "Contact via email"], links: ["https://github.com/Anchiee/Musicaly", "wyhwtf@gmail.com"]},
 ]
