@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\User\UserController;
+
+
 
 Route::get('/', function () {
     return Inertia::render('Home');
@@ -29,4 +32,9 @@ Route::get('/about', function() {
 Route::middleware('guest')->group(function() {
     Route::get('/login', [AuthenticatedSessionController::class, 'create']);
     Route::get('/sign', [RegisteredUserController::class, 'create']);
+});
+
+
+Route::middleware(['auth', 'verified'])->group(function() {
+    Route::get('/dashboard', [UserController::class, 'create'])->name('user.create');
 });
