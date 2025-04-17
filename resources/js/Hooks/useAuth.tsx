@@ -11,7 +11,7 @@ export type FormFields = {
 export default function useAuth(formFields : FormFields) {
     const { errors } = usePage().props
 
-    const { setData } = useForm<FormFields>(formFields)
+    const { setData, data } = useForm<FormFields>(formFields)
 
     const onChange = (e : React.ChangeEvent<HTMLInputElement>, formField : keyof FormFields) => {
         setData(formField, e.target.value)
@@ -25,9 +25,9 @@ export default function useAuth(formFields : FormFields) {
     const request = (type : "post" | "put" | "delete", destination: string) => {
         switch(type) {
             case "post":
-                return router.post(destination)
+                return router.post(destination, data)
             case "put":
-                return router.put(destination)
+                return router.put(destination, data)
             case "delete":
                 return router.delete(destination)
         }

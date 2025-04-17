@@ -3,7 +3,7 @@ import InlinePrompt from "@/Components/InlinePrompt"
 import SolidButton from "@/Components/SolidButton"
 import AuthLayout from "@/Layouts/AuthLayout"
 import useAuth, { FormFields } from "@/Hooks/useAuth"
-
+import Notification from "@/Components/Notification"
 
 export default function sign() {
     
@@ -13,6 +13,7 @@ export default function sign() {
         "password_confirmation": "",
         "email": "",
     })
+
 
     return(
         <AuthLayout title="Sign-up">
@@ -24,7 +25,7 @@ export default function sign() {
                         [
                             {label: "Username", placeholder: "John", id: "username", type: "text", changeLabel: "name", error: errors.name},
                             {label: "Password", placeholder: "", id: "password", type: "password", changeLabel: "password", error: errors.password},
-                            {label: "Confirm password", placeholder: "", id: "confirm_password", type: "password", changeLabel: "confirm_password", 
+                            {label: "Confirm password", placeholder: "", id: "confirm_password", type: "password", changeLabel: "password_confirmation", 
                                 error: errors.password_confirmation},
                             {label: "Email", placeholder: "John@example.com", id: "email", type: "email", changeLabel: "email", error: errors.email},
                         ].map(inputSection => (
@@ -33,7 +34,7 @@ export default function sign() {
                               <label htmlFor={inputSection.id}>{inputSection.label}</label>
                               <Input type={inputSection.type} id={inputSection.id} placeholder={inputSection.placeholder} 
                               onChange={(e) => onChange(e, inputSection.changeLabel as keyof FormFields)}/>
-                              {inputSection.error && <p>{inputSection.error}</p>}  
+                              {inputSection.error && <Notification message={inputSection.error}/>}  
                             </div>
                         
                         ))

@@ -5,7 +5,7 @@ import AuthLayout from "@/Layouts/AuthLayout"
 import useAuth from "@/Hooks/useAuth"
 import { FormFields } from "@/Hooks/useAuth"
 import { usePage } from "@inertiajs/react"
-
+import Notification from "@/Components/Notification"
 
 type usePageProps = {
     canResetPassword: boolean,
@@ -16,7 +16,7 @@ export default function login() {
 
     const { canResetPassword, status } = usePage<usePageProps>().props
     
-    const { onChange } = useAuth({
+    const { onChange, onSubmit, errors } = useAuth({
         "name": "",
         "password": "",
     })
@@ -25,18 +25,19 @@ export default function login() {
         <AuthLayout title="Sign-up">
             
             <section className="w-full max-w-md mx-auto flex flex-col items-center py-10 gap-6 self-center">
-                <form className="flex flex-col gap-6">
+                <form className="flex flex-col gap-6" onSubmit={(e) => onSubmit(e, "post", route("session.store"))}>
 
                     {
                         [
-                            {label: "Username", placeholder: "John", id: "username", type: "text", changeLabel: "name"},
-                            {label: "Password", placeholder: "", id: "password", type: "password", changeLabel: "password"},
+                            {label: "Email", placeholder: "John@example.com", id: "email", type: "email", changeLabel: "email", error: errors.email},
+                            {label: "Password", placeholder: "", id: "password", type: "password", changeLabel: "password", error: errors.password},
                         ].map(inputSection => (
 
                             <div key={inputSection.id}>
                               <label htmlFor={inputSection.id}>{inputSection.label}</label>
                               <Input type={inputSection.type} id={inputSection.id} placeholder={inputSection.placeholder} 
                               onChange={(e) => onChange(e, inputSection.changeLabel as keyof FormFields)}/>  
+                              {inputSection.error && <Notification message={inputSection.error}/>}
                             </div>
                         
                         ))
@@ -48,7 +49,7 @@ export default function login() {
                     </div>
                     
                     {status && <p>{status}</p>}
-                    <SolidButton text="Sign-up" type="button"/>
+                    <SolidButton text="Sign-up" type="submit"/>
                     
                 </form>
             </section>

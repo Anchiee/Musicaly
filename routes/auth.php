@@ -9,7 +9,7 @@ use App\Http\Controllers\User\UserController;
 
 
 Route::middleware("guest")->group(function() {
-    Route::post("/login", [AuthenticatedSessionController::class, "store"])->name("auth.store");
+    Route::post("/login", [AuthenticatedSessionController::class, "store"])->name("session.store");
     Route::post("/sign", [RegisteredUserController::class, "store"])->name("registered.store");
 });
 
