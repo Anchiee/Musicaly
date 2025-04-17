@@ -4,9 +4,17 @@ import SolidButton from "@/Components/SolidButton"
 import AuthLayout from "@/Layouts/AuthLayout"
 import useAuth from "@/Hooks/useAuth"
 import { FormFields } from "@/Hooks/useAuth"
-import { useEffect } from "react"
+import { usePage } from "@inertiajs/react"
+
+
+type usePageProps = {
+    canResetPassword: boolean,
+    status: string
+}
 
 export default function login() {
+
+    const { canResetPassword, status } = usePage<usePageProps>().props
     
     const { onChange } = useAuth({
         "name": "",
@@ -36,9 +44,10 @@ export default function login() {
 
                     <div className="flex flex-col gap-2">
                         <InlinePrompt text="New to musicaly?" link="/sign" linkText="Sign-up"/>
-                        <InlinePrompt text="Forgot password?" link="adas" linkText="Reset it"/>
+                        {canResetPassword && <InlinePrompt text="Forgot password?" link="adas" linkText="Reset it"/>}
                     </div>
-
+                    
+                    {status && <p>{status}</p>}
                     <SolidButton text="Sign-up" type="button"/>
                     
                 </form>

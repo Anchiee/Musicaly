@@ -38,3 +38,7 @@ Route::middleware('guest')->group(function() {
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/dashboard', [UserController::class, 'create'])->name('user.create');
 });
+
+
+
+require_once __DIR__ . "/auth.php";

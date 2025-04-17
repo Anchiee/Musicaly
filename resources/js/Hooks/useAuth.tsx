@@ -1,18 +1,37 @@
-import { useForm, router } from "@inertiajs/react";
+import { useForm, router, usePage } from "@inertiajs/react";
+import { FormEvent } from "react";
 
 export type FormFields = {
     name?: string,
     password?: string,
-    confirm_password?: string,
+    password_confirmation?: string,
     email?: string
 }
 
 export default function useAuth(formFields : FormFields) {
-    const { data, setData, post, put } = useForm<FormFields>(formFields)
+    const { errors } = usePage().props
+
+    const { setData } = useForm<FormFields>(formFields)
 
     const onChange = (e : React.ChangeEvent<HTMLInputElement>, formField : keyof FormFields) => {
         setData(formField, e.target.value)
     }
 
-    return { onChange }
+    const onSubmit = (e: FormEvent, requestType : "post" | "put" | "delete", destination : string) => {
+        e.preventDefault()
+        request(requestType, destination)
+    }
+
+    const request = (type : "post" | "put" | "delete", destination: string) => {
+        switch(type) {
+            case "post":
+                return router.post(destination)
+            case "put":
+                return router.put(destination)
+            case "delete":
+                return router.delete(destination)
+        }
+    }
+
+    return { onChange, onSubmit, errors }
 }
