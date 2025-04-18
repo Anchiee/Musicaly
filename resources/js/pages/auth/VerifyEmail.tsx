@@ -1,5 +1,4 @@
 import CardLayout from "@/Layouts/CardLayout"
-import SolidButton from "@/Components/SolidButton"
 import { Link } from "@inertiajs/react"
 
 export default function VerifyEmail() {
