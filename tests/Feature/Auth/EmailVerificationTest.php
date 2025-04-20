@@ -30,7 +30,7 @@ test('email can be verified', function () {
 
     Event::assertDispatched(Verified::class);
     expect($user->fresh()->hasVerifiedEmail())->toBeTrue();
-    $response->assertRedirect(route('user.create', absolute: false).'?verified=1');
+    $response->assertRedirect(route('user.create', absolute: false));
 });
 
 test('email is not verified with invalid hash', function () {
