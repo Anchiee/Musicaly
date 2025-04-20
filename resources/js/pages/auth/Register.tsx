@@ -5,10 +5,14 @@ import AuthLayout from "@/Layouts/AuthLayout"
 import useAuth, { FormFields } from "@/Hooks/useAuth"
 import Notification from "@/Components/Notification"
 import Socials from "@/Components/Socials"
-
+import { usePage } from "@inertiajs/react"
+import { usePageProps } from "@/types/inertiaHooks"
 
 export default function sign() {
     
+
+    const { canResetPassword } = usePage<usePageProps>().props
+
     const { onChange, onSubmit, errors } = useAuth({
         "name": "",
         "password": "",
@@ -44,11 +48,11 @@ export default function sign() {
                         }
 
                         <div className="flex flex-col gap-2 my-4">
-                            <InlinePrompt text="Already have an account?" link="/login" linkText="Log-in"/>
-                            <InlinePrompt text="Forgot password?" link="adas" linkText="Reset it"/>
+                            <InlinePrompt text="Already have an account?" link="/login" linkText="Log in"/>
+                            {canResetPassword && <InlinePrompt text="Forgot password?" link="adas" linkText="Reset it"/>}
                         </div>
 
-                        <SolidButton text="Sign-up" type="submit"/>
+                        <SolidButton text="Sign up" type="submit"/>
                     </form>
                 </div>
             </section>

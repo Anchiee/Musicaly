@@ -7,11 +7,7 @@ import { FormFields } from "@/Hooks/useAuth"
 import { usePage } from "@inertiajs/react"
 import Notification from "@/Components/Notification"
 import Socials from "@/Components/Socials"
-
-type usePageProps = {
-    canResetPassword: boolean,
-    status: string
-}
+import { usePageProps } from "@/types/inertiaHooks"
 
 export default function login() {
 
@@ -45,12 +41,12 @@ export default function login() {
                             ))
                         }
                         <div className="flex flex-col gap-2 my-4">
-                            <InlinePrompt text="New to musicaly?" link="/sign" linkText="Sign-up"/>
+                            <InlinePrompt text="New to musicaly?" link="/sign" linkText="Sign up"/>
                             {canResetPassword && <InlinePrompt text="Forgot password?" link="adas" linkText="Reset it"/>}
                         </div>
                     
                         {status && <p>{status}</p>}
-                        <SolidButton text="Sign-up" type="submit"/>
+                        <SolidButton text="Sign in" type="submit"/>
                     </form>
 
                     
