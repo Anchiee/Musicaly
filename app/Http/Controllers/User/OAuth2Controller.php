@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
-
+use App\Http\Controllers\Controller;
 
 class OAuth2Controller extends Controller
 {
