@@ -9,8 +9,8 @@ use App\Http\Controllers\User\UserController;
 
 
 Route::middleware("guest")->group(function() {
-    Route::post("/login", [AuthenticatedSessionController::class, "store"])->name("session.store");
-    Route::post("/sign", [RegisteredUserController::class, "store"])->name("registered.store");
+    Route::post("/login", [AuthenticatedSessionController::class, "store"])->middleware('throttle:5,15')->name("session.store");
+    Route::post("/sign", [RegisteredUserController::class, "store"])->middleware('throttle:3,60')->name("registered.store");
 });
 
 Route::middleware("auth")->group(function() {
