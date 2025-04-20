@@ -5,7 +5,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\User\UserController;
-
+use App\Http\Controllers\User\OAuth2Controller;
 
 
 Route::get('/', function () {
@@ -32,6 +32,13 @@ Route::get('/about', function() {
 Route::middleware('guest')->group(function() {
     Route::get('/login', [AuthenticatedSessionController::class, 'create']);
     Route::get('/sign', [RegisteredUserController::class, 'create']);
+
+
+    Route::get('/github/redirect', [OAuth2Controller::class, 'githubRedirect']);
+    Route::get('/github/callback', [OAuth2Controller::class, 'githubCallback']);
+
+    Route::get('/gitlab/redirect', [OAuth2Controller::class, 'gitlabRedirect']);
+    Route::get('/gitlab/callback', [OAuth2Controller::class, 'gitlabCallback']);
 });
 
 
