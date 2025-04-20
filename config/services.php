@@ -38,13 +38,13 @@ return [
     'github' => [
         'client_id' => 'Iv23li2WQu3NsLbAFH93',
         'client_secret' => env('GITHUB_SECRET'),
-        'redirect' => 'http://127.0.0.1:8000/dashboard'
+        'redirect' => 'http://127.0.0.1:8000/github/callback'
     ],
 
     'gitlab' => [
         'client_id' => '4329b5e5d3202bb73c3537279fdc10517f258313e05acbd3bde409b67fe1aa6b',
         'client_secret' => env('GITLAB_SECRET'),
-        'redirect' => 'http://127.0.0.1:8000/dashboard'
+        'redirect' => 'http://127.0.0.1:8000/gitlab/callback'
     ],
 
 ];
