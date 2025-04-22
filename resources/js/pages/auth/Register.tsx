@@ -8,7 +8,7 @@ import Socials from "@/Components/Socials"
 import { usePage } from "@inertiajs/react"
 import { usePageProps } from "@/types/inertiaHooks"
 
-export default function sign() {
+export default function Sign() {
     
 
     const { canResetPassword } = usePage<usePageProps>().props

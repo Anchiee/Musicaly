@@ -9,7 +9,7 @@ import Notification from "@/Components/Notification"
 import Socials from "@/Components/Socials"
 import { usePageProps } from "@/types/inertiaHooks"
 
-export default function login() {
+export default function Login() {
 
     const { canResetPassword, status } = usePage<usePageProps>().props
     
